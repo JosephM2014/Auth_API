@@ -4,7 +4,7 @@ import os
 # Third Party Imports.
 import psycopg2
 
-DB_URL = os.getenv('URL')
+DB_URL = os.getenv('DATABASE_URL')
 def db_connection():
     conn = psycopg2.connect(DB_URL)
     conn.autocommit = True

@@ -7,6 +7,7 @@ from datetime import timedelta
 
 # Third Party Imports.
 from flask import Flask
+from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 
 def create_app(config_name=None):
@@ -25,5 +26,7 @@ def create_app(config_name=None):
     from .api.v2 import version2, api
     app.register_blueprint(version2)
     manager._set_error_handler_callbacks(api)
+
+    CORS(app=app)
 
     return app
